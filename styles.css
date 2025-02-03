@@ -1,3 +1,12 @@
+:root {
+    --primary-color: #dfd3c3;
+    --secondary-color: #596e79;
+    --background-color: #f0ece2;
+    --text-color: var(--secondary-color);
+    --footer-background: #c7b198;
+    --footer-text: var(--text-color);
+}
+
 /* Reset some default browser styles */
 * {
     margin: 0;
@@ -9,28 +18,29 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding: 20px;
 }
 
-/* Container class for layout */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+/* Main intro div */
+#introDiv {
+    transform: translate(-50%, -50%);
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }
 
 /* Header styling */
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
+h1 {
     text-align: center;
-}
-
-header h1 {
-    margin: 0;
+    text-wrap: nowrap;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 5em;
+    left: 50%;
+    right:50%;
+    max-width: 100%;
 }
 
 /* Navigation styling */
@@ -50,11 +60,11 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
 }
 
 nav ul li a:hover {
-    color: #007BFF;
+    color: var(--primary-color);
 }
 
 /* Main content styling */
@@ -64,11 +74,74 @@ main {
 
 /* Footer styling */
 footer {
-    background: #333;
-    color: #fff;
+    background: var(--footer-background);
+    color: var(--footer-text);
     text-align: center;
     padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+/* Main name header*/
+#firstName {
+    color: transparent;
+    animation: first-name-animation 3s 1;
+    -webkit-text-stroke: 1px var(--text-color);
+}
+
+#lastName {
+    animation: last-name-animation 5s 1;
+}
+
+@keyframes last-name-animation {
+    0% {
+        color: transparent;
+    }
+    100% {
+        color: var(--text-color);
+    }
+}
+
+@keyframes first-name-animation {
+    0% {
+        -webkit-text-stroke: 1px var(--background-color);
+    }
+    100% {
+        -webkit-text-stroke: 1px var(--text-color);
+    }
+}
+
+@media (max-width: 600px) {
+    #firstName, #lastName {
+        font-size: 80%;
+    }
+    #firstName {
+        -webkit-text-stroke: var(--text-color) 0.4px;
+    }
+}
+
+@media (max-width: 400px) {
+    #firstName, #lastName {
+        font-size: 60%;
+    }
+    #firstName {
+        -webkit-text-stroke: var(--text-color) 0.3px;
+    }
+}
+
+@media (max-width: 200px) {
+    #firstName, #lastName {
+        font-size: 40%;
+    }
+    #firstName {
+        -webkit-text-stroke: var(--text-color) 0.2px;
+    }
+}
+
+#scrollDownDiv {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 90%;
+    left: 50%;
 }
