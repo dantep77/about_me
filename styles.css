@@ -12,16 +12,48 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-color: transparent;
 }
 
+a {
+    text-decoration: none;
+    color:var(--background-color);
+}
 /* Basic body styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: var(--background-color);
-    color: var(--text-color);
 }
 
+header {
+    display: block;
+    height: 30px;
+    width: 0%;
+    background-color: var(--secondary-color);
+    animation: slidingHeader 2s cubic-bezier(0.23, 1, 0.320, 1) forwards;
+    text-align: center;
+}
+
+@keyframes slidingHeader {
+    100%{
+        width: 100%;
+    }
+}
+
+.headerLink {
+    margin: 5%;
+    animation-delay: 2s;
+    animation: showHeaderLink 2s forwards;
+}
+@keyframes showHeaderLink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
 /* Main intro div */
 #introDiv {
     transform: translate(-50%, -50%);
@@ -33,6 +65,7 @@ body {
 
 /* Header styling */
 h1 {
+    padding: 5%;
     text-align: center;
     text-wrap: nowrap;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -66,7 +99,7 @@ footer {
     background-position-x: 0%;
     background-position-y: 88%;
     background-repeat: no-repeat;
-    animation: slidingUnderline 2s cubic-bezier(0.23, 1, 0.320, 1) forwards, first-name-animation 2s 1;
+    animation: slidingUnderline 2s cubic-bezier(0.23, 1, 0.320, 1) forwards, first-name-animation 2s 1 forwards;
 }
 
 @keyframes slidingUnderline {
@@ -86,7 +119,7 @@ footer {
     background-position-x: 0%;
     background-position-y: 88%;
     background-repeat: no-repeat;
-    animation: slidingUnderline 2s cubic-bezier(0.23, 1, 0.320, 1) forwards, last-name-animation 2s 1;
+    animation: slidingUnderline 2s cubic-bezier(0.23, 1, 0.320, 1) forwards, last-name-animation 2s 1 forwards;
 }
 
 @keyframes last-name-animation {
@@ -146,12 +179,33 @@ footer {
 }
  
 #scrollDownText {
+    color: var(--text-color);
     margin: 0;
     padding: 0;
 }
-
+.fa-angles-down {
+    color: var(--text-color);
+}
 #aboutSection {
-    display: block;
+    display: flex;
     position: absolute;
-    top: 100%;
+    width: 100%;
+    padding: 0 10%;
+    top: 110%;
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+.clickableIcon {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color ease-in-out 0.2s;
+}
+
+.clickableIcon:hover {
+    color: var(--footer-background);
 }
