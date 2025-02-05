@@ -37,11 +37,15 @@ body {
 
 header {
     display: block;
-    height: 0px;
+    height: 30px;
     width: 100%;
     background-color: var(--secondary-color);
-    animation: slidingHeader 2s cubic-bezier(0.23, 1, 0.320, 1) forwards;
     text-align: center;
+}
+
+.slidingHeader{
+    height: 0px;
+    animation: slidingHeader 2s cubic-bezier(0.23, 1, 0.320, 1) forwards;
 }
 
 @keyframes slidingHeader {
@@ -51,10 +55,14 @@ header {
 }
 
 .headerLink {
+    margin:5%;
+}
+.slidingHeader .headerLink {
     margin: 5%;
     animation-delay: 2s;
     animation: showHeaderLink 2s forwards;
 }
+
 @keyframes showHeaderLink {
     0% {
         opacity: 0;
