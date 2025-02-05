@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" translate="no">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    <title>Resume</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/brands.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/solid.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
+    <title>About me</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.css" />
     <script type="text/javascript" src="js/scripts.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a class="headerLink" href="index.html">Home</a>
-        <a class="headerLink" href="resume.html">Resume</a>
-        <a class="headerLink" href="about.html">About</a>
+      <a class="headerLink" href="index.html">Home</a>
+      <a class="headerLink" href="resume.html">Resume</a>
+      <a class="headerLink" href="about.html">About</a>
     </header>
-    <h1 class="comingSoon">coming soon...</h1>
-</body>
+    <h1 id="aboutMeHeader">
+      <span class="outlined">About</span> <span>me</span>
+    </h1>
+    <div id="aboutMeDiv">
+      <p>
+        Hello! My name is Dante Paradis, I am a
+        <strong>Computer Science</strong> student at NC State. I have a
+        concentration in <strong>Artificial Intelligence</strong> as well as a
+        minor in <strong>Mathematical Data Science</strong>. I am currently open
+        to SWE or other tech-related internship opportunites in the
+        Raleigh-Durham Area.
+      </p>
+      <br />
+      <h1>Projects</h1>
+      <p>Here are a few of my projects!</p>
+      <br />
+      <ul id="projectList">
+        <li>
+          <h3>WolfScheduler</h3>
+          <p>
+            A Java program that helps NC State students schedule their courses
+            and events, I created this program in CSC 216 at NC State
+          </p>
+        </li>
+        <br />
+        <li>
+          <h3>Personal Linux Server</h3>
+          <p>
+            I created a Linux server to stream media and host games for my
+            family at home. I plan transform it to be a personal cloud server
+            that I can access from anywhere
+          </p>
+        </li>
+        <br />
+        <li>
+          <h3>AI Sentiment Analysis</h3>
+          <p>
+            A python program that determines whether a movie review is positive
+            or negative. It was trained on a database of thousands of IMDB movie
+            review
+          </p>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
