@@ -266,3 +266,12 @@ footer {
     width: 90%;
     text-wrap: wrap;
 }
+
+.projectLink {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.projectLink:hover {
+  color: var(--footer-background);
+}
