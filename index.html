@@ -1,48 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" translate="no">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
     <title>Dante</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico?" />
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/all.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/brands.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/solid.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.css" />
     <script type="text/javascript" src="js/scripts.js"></script>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-60P8WKZG8J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  </head>
+  <body class="bg-black">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-60P8WKZG8J"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-60P8WKZG8J');
-</script>
-<body >
-    <header class="slidingHeader">
-        <a class="headerLink" href="index.html">Home</a>
-        <a class="headerLink" href="resume.html">Resume</a>
-        <a class="headerLink" href="about.html">About</a>
-    </header>
-    <div id="introDiv">
-        <div id="nameHeader">
-            <span id="firstName">Dante</span>
-            <span id="lastName">Paradis</span>
-        </div>
+      gtag("config", "G-60P8WKZG8J");
+    </script>
+    <nav
+      class="w-full h-14 text-white bg-emerald-900 flex items-center px-3 sm:px-6 fixed top-0 left-0 right-0 z-50"
+    >
+      <div class="font-mono text-lg sm:text-xl truncate">
+        <i class="fa-solid fa-code"></i> Dante Paradis
+      </div>
+      <div class="ml-auto flex space-x-4 sm:space-x-6 text-lg sm:text-xl">
+        <a
+          class="fa-solid fa-home hover:text-green-400 transition-colors"
+          href="index.html"
+        ></a>
+        <a
+          class="fa-solid fa-file hover:text-green-400 transition-colors"
+          href="resume.html"
+        ></a>
+        <a
+          class="fa-solid fa-pen-nib hover:text-green-400 transition-colors"
+          href="blog.html"
+        ></a>
+      </div>
+    </nav>
+    <div id="commandLine" class="text-white w-fit font-mono text-xl m-5 mt-16">
+      <p id="line1"></p>
+      <p id="line2"></p>
+      <p id="line3"></p>
+      <p id="line4"></p>
+      <input type="text" class="focus:border-0" />
     </div>
-    <div id="scrollDownDiv">
-        <p id="scrollDownText">scroll down for more</p>
-        <i class="fa-solid fa-angles-down"></i>
-    </div>
-    <hr>
-    <section id="aboutSection">
-        <a class="fa-solid fa-address-card fa-10x clickableIcon" href="resume.html" ></a>
-        <a class="fa-solid fa-pen-nib fa-10x clickableIcon" href="blog.html" ></a>
-        <a class="fa-brands fa-github fa-10x clickableIcon" href="https://github.com/dantep77" target="_blank"></a>
-        <a class="fa-brands fa-linkedin fa-10x clickableIcon" href="https://linkedin.com/in/dantep77" target="_blank"></a>
-    </section>
+  </body>
 </html>
