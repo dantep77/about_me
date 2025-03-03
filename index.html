@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="en" translate="no" class="overflow-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,7 @@
     <title>Dante</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico?" />
     <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/all.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/brands.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/solid.css" />
@@ -29,7 +30,7 @@
       gtag("config", "G-60P8WKZG8J");
     </script>
     <nav
-      class="w-full h-14 text-white bg-emerald-900 flex items-center px-3 sm:px-6 fixed top-0 left-0 right-0 z-50"
+      class="w-full h-14 text-white bg-emerald-900 flex items-center px-3 sm:px-6 fixed top-0 left-0 right-0 z-[9999]"
     >
       <div class="font-mono text-lg sm:text-xl truncate">
         <i class="fa-solid fa-code"></i> Dante Paradis
@@ -49,12 +50,17 @@
         ></a>
       </div>
     </nav>
-    <div id="commandLine" class="text-white w-fit font-mono text-xl m-5 mt-16">
-      <p id="line1"></p>
-      <p id="line2"></p>
-      <p id="line3"></p>
-      <p id="line4"></p>
-      <input type="text" class="focus:border-0" />
+
+    <div
+      class="h-screen w-full pb-4 pt-4 absolute top-10 overflow-y-auto scrollbar-thumb-rounded-full scrollbar scrollbar-track-transparent scrollbar-thumb-transparent"
+    >
+      <div id="commandLine" class="text-white w-fit font-mono text-xl m-5 relative">
+        <p id="line1"></p>
+        <p id="line2"></p>
+        <p id="line3"></p>
+        <p id="line4"></p>
+        <input type="text" class="focus:border-0" />
+      </div>
     </div>
   </body>
 </html>
