@@ -202,7 +202,7 @@ async function processCommand(command, commandLine) {
     • <span class="text-blue-400">Languages:</span> Java, C, Python, SQL
     • <span class="text-blue-400">Data Engineering & BI:</span> Power BI, Informatica Cloud, Oracle 19c, Oracle APEX, Maestro, REST APIs, asyncio, aiohttp
     • <span class="text-blue-400">Libraries & Frameworks:</span> Spring Boot, Hibernate, Pandas, Scikit-Learn, NLTK, Streamlit
-    • <span class="text-blue-400">Tools:</span> Git, Jenkins, Excel, VS Code, Claude Code`,
+    • <span class="text-blue-400">Tools:</span> Git, GitHub Actions, Jenkins, Maven, JUnit, Excel, VS Code, Claude Code`,
 
     projects: `<span class="text-green-400">Notable Projects:</span>
     1. <span class="text-blue-400">AI Sentiment Analysis</span>
@@ -214,9 +214,10 @@ async function processCommand(command, commandLine) {
        • Interactive dashboard analyzing global music streaming data by artist, listener age, and country
        • Built data visualizations to uncover regional genre preferences and listener demographics
 
-    3. <span class="text-blue-400">Text-Based Blackjack</span> - Java, OOP, CLI
-       • Object-oriented Blackjack game featuring modular design, dealer AI, and CLI score tracking
-       • Implemented a singleton design pattern to ensure proper game state
+    3. <span class="text-blue-400">Twenty-One</span> - Java, Maven, JUnit 5, GitHub Actions
+       • Full-featured Blackjack engine: betting, splits, double downs, insurance, and surrender
+       • Built a basic-strategy coach mode that explains the reasoning behind every suggested move
+       • Backed by a 96-test JUnit suite and a GitHub Actions CI pipeline running on every push/PR
        • <span class="text-yellow-400">Code here: <a href='https://github.com/dantep77/Twenty-One' target='_blank'><strong>Twenty-One on GitHub</strong></a></span>
 
     4. <span class="text-blue-400">Personal Linux Server</span>
