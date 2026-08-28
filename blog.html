@@ -12,23 +12,109 @@
     <link rel="stylesheet" href="assets/fontawesome/css/brands.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/solid.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"
+    ></script>
     <script type="text/javascript" src="js/scripts.js"></script>
+    <style>
+      #blog {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 0 1rem 4rem;
+        padding-top: calc(5rem + var(--mobile-banner-height, 0px));
+        color: #e5e7eb;
+        font-family: monospace;
+        line-height: 1.7;
+      }
+      #blog h1 {
+        font-size: 1.75rem;
+        color: #34d399;
+        margin: 0 0 0.5rem;
+      }
+      #blog h2 {
+        font-size: 1.25rem;
+        color: #34d399;
+        margin: 1.75rem 0 0.5rem;
+      }
+      #blog p,
+      #blog li {
+        margin: 0.75rem 0;
+      }
+      #blog em {
+        color: #9ca3af;
+      }
+      #blog ol,
+      #blog ul {
+        padding-left: 1.5rem;
+      }
+      #blog a {
+        color: #60a5fa;
+      }
+      #blog code {
+        background: #111827;
+        color: #fbbf24;
+        padding: 0.1rem 0.3rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      #blog img {
+        border-radius: 8px;
+        margin: 1rem 0;
+        max-width: 160px;
+      }
+      .post-list-item {
+        display: block;
+        border: 1px solid #064e3b;
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        margin: 1rem 0;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.15s ease;
+      }
+      .post-list-item:hover {
+        border-color: #34d399;
+      }
+      .post-list-item .post-title {
+        color: #34d399;
+        font-size: 1.1rem;
+      }
+      .post-list-item .post-date {
+        color: #9ca3af;
+        font-size: 0.8rem;
+        display: block;
+        margin: 0.15rem 0 0.5rem;
+      }
+      #blog .post-list-item .post-summary {
+        color: #e5e7eb;
+        display: block;
+      }
+      .back-link {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: #60a5fa;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-60P8WKZG8J"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-60P8WKZG8J");
-  </script>
   <body class="bg-black">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-60P8WKZG8J"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-60P8WKZG8J");
+    </script>
     <nav
       class="w-full h-14 text-white bg-emerald-900 flex items-center px-3 sm:px-6 fixed top-0 left-0 right-0 z-50"
     >
@@ -51,8 +137,68 @@
       </div>
     </nav>
 
-    <div class="text-white font-mono text-lg sm:text-xl mt-14">
-      <h1>Coming soon...</h1>
-    </div>
+    <div id="blog">Loading...</div>
+
+    <script>
+      function escapeHtml(str) {
+        const div = document.createElement("div");
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      async function renderPostList() {
+        const blogEl = document.getElementById("blog");
+        try {
+          const res = await fetch("blog/posts.json");
+          const posts = await res.json();
+          posts.sort((a, b) => b.date.localeCompare(a.date));
+
+          blogEl.innerHTML =
+            `<h1>Blog</h1>` +
+            posts
+              .map(
+                (post) => `
+                <a class="post-list-item" href="blog.html?post=${encodeURIComponent(post.slug)}">
+                  <span class="post-title">${escapeHtml(post.title)}</span>
+                  <span class="post-date">${escapeHtml(post.date)}</span>
+                  <span class="post-summary">${escapeHtml(post.summary)}</span>
+                </a>
+              `
+              )
+              .join("");
+        } catch (err) {
+          blogEl.textContent = "Couldn't load blog posts right now.";
+        }
+      }
+
+      async function renderPost(slug) {
+        const blogEl = document.getElementById("blog");
+        try {
+          const res = await fetch("blog/posts.json");
+          const posts = await res.json();
+          const post = posts.find((p) => p.slug === slug);
+          if (!post) {
+            blogEl.innerHTML = `<a class="back-link" href="blog.html">&larr; All posts</a><p>Post not found.</p>`;
+            return;
+          }
+
+          const mdRes = await fetch(`blog/posts/${slug}.md`);
+          const markdown = await mdRes.text();
+          document.title = post.title;
+          blogEl.innerHTML =
+            `<a class="back-link" href="blog.html">&larr; All posts</a>` +
+            marked.parse(markdown);
+        } catch (err) {
+          blogEl.innerHTML = `<a class="back-link" href="blog.html">&larr; All posts</a><p>Couldn't load this post right now.</p>`;
+        }
+      }
+
+      const slug = new URLSearchParams(window.location.search).get("post");
+      if (slug) {
+        renderPost(slug);
+      } else {
+        renderPostList();
+      }
+    </script>
   </body>
 </html>

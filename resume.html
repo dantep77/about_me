@@ -13,22 +13,27 @@
     <link rel="stylesheet" href="assets/fontawesome/css/solid.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.css" />
     <script type="text/javascript" src="js/scripts.js"></script>
+    <style>
+      #resumeContainer {
+        padding-top: calc(5rem + var(--mobile-banner-height, 0px));
+      }
+    </style>
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-60P8WKZG8J"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-60P8WKZG8J");
-  </script>
   <body class="bg-black">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-60P8WKZG8J"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-60P8WKZG8J");
+    </script>
     <nav
       class="w-full h-14 text-white bg-emerald-900 flex items-center px-3 sm:px-6 fixed top-0 left-0 right-0 z-50"
     >
@@ -51,11 +56,11 @@
       </div>
     </nav>
 
-    <div class="mt-16 flex justify-center px-2 sm:px-4 md:px-6">
+    <div id="resumeContainer" class="flex justify-center pb-8 px-2 sm:px-4 md:px-6">
       <img
         class="w-full sm:w-auto max-h-[85vh] object-contain rounded-lg shadow-lg"
         src="assets/resume/resume.jpg"
-        alt="Dante Paradis Resume"
+        alt="Resume for Dante Paradis, Computer Science student at North Carolina State University"
       />
     </div>
   </body>
