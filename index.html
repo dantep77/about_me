@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="assets/fontawesome/css/solid.css" />
     <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.css" />
     <script type="text/javascript" src="js/scripts.js"></script>
+    <style>
+      #terminalContainer {
+        top: calc(2.5rem + var(--mobile-banner-height, 0px));
+      }
+    </style>
   </head>
   <body class="bg-black">
     <!-- Google tag (gtag.js) -->
@@ -52,7 +57,8 @@
     </nav>
 
     <div
-      class="h-screen w-full pb-4 pt-4 absolute top-10 overflow-y-auto scrollbar-thumb-rounded-full scrollbar scrollbar-track-transparent scrollbar-thumb-transparent"
+      id="terminalContainer"
+      class="h-screen w-full pb-4 pt-4 absolute overflow-y-auto scrollbar-thumb-rounded-full scrollbar scrollbar-track-transparent scrollbar-thumb-transparent"
     >
       <div id="commandLine" class="text-white w-fit font-mono text-xl m-5 relative">
         <p id="line1"></p>

@@ -1,0 +1,8 @@
+[
+  {
+    "slug": "bug-hunt-with-claude-code",
+    "title": "A bug hunt with Claude Code",
+    "date": "2026-08-28",
+    "summary": "Two real bugs turned up in a code review — a stuck spacebar and a reflected XSS — and how they got fixed."
+  }
+]
